@@ -34,7 +34,7 @@ $result = $stmt->get_result();
         <div class="logo">🛠️ Ferramenta Luxardo</div>
         <div class="menu-toggle" id="menu-toggle">&#9776;</div>
         <ul class="nav-links" id="nav-links">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="prodotti.php?categoria=Bulloneria">Prodotti</a></li>
             <li><a href="#">Contatti</a></li>
         </ul>
