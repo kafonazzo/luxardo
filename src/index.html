@@ -1,10 +1,99 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ferramenta - Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-$END$
+<div class="wrapper">
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">🛠️ Ferramenta Luxardo</div>
+            <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Chi Siamo</a></li>
+                <li><a href="#">Contatti</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <img src="../1.png" alt="Logo Ferramenta" class="hero-logo" />
+            <h1>Cosa compriamo oggi?</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="sezioni">
+            <a class="blocco" href="prodotti.php?categoria=Bulloneria">🔩 Bulloneria</a>
+            <a class="blocco" href="prodotti.php?categoria=Utensili">🧰 Utensili</a>
+            <a class="blocco" href="prodotti.php?categoria=Vernici">🎨 Vernici</a>
+            <a class="blocco" href="prodotti.php?categoria=Elettricità">🔌 Elettricità</a>
+            <a class="blocco" href="prodotti.php?categoria=Idraulica">🚰 Idraulica</a>
+            <a class="blocco" href="prodotti.php?categoria=Falegnameria">🪵 Falegnameria</a>
+        </section>
+    </main>
+
+    <section class="mappa">
+        <h2>Dove siamo 📍</h2>
+        <div id="map"></div>
+    </section>
+
+    <h2 class="titolo-sezione">Le nostre marche</h2>
+    <div class="galleria">
+        <div class="item">
+            <img src="data:image/jpeg;base64,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" alt="Prodotto 1">
+            <p>Prodotto 1</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+2" alt="Prodotto 2">
+            <p>Prodotto 2</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+3" alt="Prodotto 3">
+            <p>Prodotto 3</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+4" alt="Prodotto 4">
+            <p>Prodotto 4</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+5" alt="Prodotto 5">
+            <p>Prodotto 5</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+6" alt="Prodotto 6">
+            <p>Prodotto 6</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+7" alt="Prodotto 7">
+            <p>Prodotto 7</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+8" alt="Prodotto 8">
+            <p>Prodotto 8</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+9" alt="Prodotto 9">
+            <p>Prodotto 9</p>
+        </div>
+        <div class="item">
+            <img src="https://via.placeholder.com/180x120?text=Prodotto+10" alt="Prodotto 10">
+            <p>Prodotto 10</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Ferramenta di Mario - Tutti i diritti riservati</p>
+    </footer>
+
+</div> <!-- /.wrapper -->
 </body>
 </html>
